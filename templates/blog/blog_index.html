@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fulid user-styling">
+    <div class="container">
+        <div class="row post-se">
+            <div class="col-lg-4">
+              <h1 class="heading-style-1">Blogs</h1>
+              <p><a href="{% url 'create_blog' %}">Click here</a> to Create new Blog</p>
+            </div>
+            <div class="col-lg-8">
+            
+            {% if blogs %}
+            {% for blog in blogs %}
+                <div class="card mb-3">
+                    <div class="card-body cart-style">
+                        <div class="card-subtitle subtitle-style">
+                            <small class="icon-n-data mr-2"><i class="bi bi-calendar-date-fill me-2"></i><span>{{ blog.created_at }}</span></small>
+                        </div>
+                        <a href="{% url 'blog_detail' blog.slug blog.id %}" class="all-link">
+                            <h5 class="card-title"><span class="mr-1">{{ forloop.counter}}.</span>{{ blog.title }}.</h5>
+                            <p class="card-text text-muted ml-3">{{ blog.get_markdown_description|striptags|truncatechars:400 }}</p>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+            {% else %}
+                <strong>We don't have any Blogs.</strong><a href="{% url 'create_blog' %}"> Click here to make blog</a>            
+            {% endif %}
+                
+            </div>
+            
+        </div>
+    </div>
+  </div>
+{% endblock %}
