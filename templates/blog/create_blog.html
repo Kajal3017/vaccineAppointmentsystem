@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container-fulid user-styling">
+    <div class="container">
+        <div class="row post-se">
+            <div class="col-lg-3">
+              <h1 class="heading-style-1">Write Your Blog</h1>
+            </div>
+            <div class="col-lg-9">
+                <div class="form-style-card">
+                    <form action="." method="POST" class="form">
+                        {% csrf_token %}
+                        {{ form.media }}
+                        {{ form|crispy }}
+
+                        <button type="submit" class="btn btn-primary btn-lg mb-3">Save Blog</button>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+
+{% endblock content %}

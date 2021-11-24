@@ -1,0 +1,29 @@
+{% extends "account/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}
+  Signup
+{% endblock %}
+
+{% block content %}
+<div class="container-fulid user-styling">
+  <div class="container">
+      <div class="row post-se">
+          <div class="col-lg-4">
+            <h1 class="heading-style-1">Sign Up</h1>
+          </div>
+          <div class="col-lg-8">
+            <p>Already have an account? Then please <a href="{{ login_url }}">sign in</a></p>
+    
+            <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+              {% csrf_token %}
+              {{ form|crispy }}
+              <button type="submit" class="btn btn-primary signup-btn mt-4">Sign Up &raquo;</button>
+            </form>
+              
+          </div>
+          
+      </div>
+  </div>
+</div>
+{% endblock %}

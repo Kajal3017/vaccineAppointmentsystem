@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="header-section mb-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="header">
+                    <h1>{{ blog }}.</h1>
+                    <span>
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        {{ blog.created_at }}
+                        {% comment %}
+                        <a href="{% url 'edit_blog' %}" class="ms-4"><i class="bi bi-pencil-square"></i></a>
+                        {% endcomment %}                       
+                        
+                    </span>
+                    <div style="width: 100%; margin-top: 50px;">{{ blog.get_markdown_description }}</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+{% endblock %}

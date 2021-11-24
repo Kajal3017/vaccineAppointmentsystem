@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %} 
+{% load static %}
+{% block body %}
+<section class="header-section" style="background-color: rgba(206, 212, 214, 0.548);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container mt-5">
+    <div class="row">
+
+        <div class="col-lg-8">
+            {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+            {% endif %}
+            
+            <h4>Edit your Profile</h4>
+            <form action="{% url 'notes:dashboard' user.username %}" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="form-group col-md-6">
+                    {{ form.username|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6">
+                    {{ form.email|as_crispy_field }}
+                    </div>              
+                    <div class="form-group col-md-6">
+                    {{ form.first_name|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6">
+                    {{ form.last_name|as_crispy_field }}
+                    </div>
+                </div>
+                <input type="submit" value="Submit Changes" name="edit_profile" class="btn btn-outline-dark">
+                <hr>
+            </form>
+
+            <h4>Change Password</h4>
+            <form action="{% url 'notes:dashboard' user.username %}" method="POST">
+                {% csrf_token %}
+                {{ password_form|crispy }}
+                <input type="submit" value="Change Password" name='change_password' class="btn btn-outline-dark">
+                <hr>
+            </form>
+
+            <h4>Your Notes</h4>
+            <ol>
+                {% for note in user.notes_set.active %}
+                    <li>
+                        <a style="color: rgb(122, 123, 124); font-weight: 500;" href="{% url 'notes:detail' note.slug note.id %}">
+                            {{ note }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ol>
+
+            <h4>Shared Notes</h4>
+            <ol>
+                {% for note in shared_notes %}
+                    <li>
+                        <a style="color: rgb(122, 123, 124); font-weight: 500;" href="{% url 'notes:detail' note.slug note.id %}">
+                            {{ note }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ol>
+
+            <h4>Deleted Notes</h4>
+            <ol>
+                {% for note in deleted_notes %}
+                    <li>
+                        <a style="color: rgb(122, 123, 124); font-weight: 500;" href="{% url 'notes:detail' note.slug note.id %}">
+                            {{ note }}
+                        </a>
+                        <a style="color: rgb(37, 37, 37); font-weight: 500;" href="{% url 'notes:recover_notes' note.slug note.id %}">Recover it</a>
+                    </li>
+                {% endfor %}
+            </ol>
+
+        </div>
+
+        <div class="col-lg-4">
+            <div class="asside-items">
+
+                <div class="user-logo">
+                    <div class="user-logo-img">
+                        <img src="{% static 'notes/img/user-logo.png' %}" alt="User Logo"> 
+                    </div>
+                    <div class="user-logo-title">
+                        <h5>{{ user|title }}</h5>
+                    </div>
+                    <div class="user-logo-body">
+                        <p><strong>Joined: </strong>{{ user.date_joined }}</p>
+                        <p><strong>Last Login: </strong>{{ user.last_login }}</p>
+                    </div>
+                </div>
+                <div>
+                    <a href="#" class="btn btn-secondary btn-lg btn-block">Add Notes</a>
+                    <hr>
+                </div>
+                <div class="cate-link">
+                    <h5 class="asside-header">Category</h5>
+                    <hr>
+                    {% for category in user.category_set.all %}
+                    <ul>
+                        <li><a href="#">{{ category.name }}</a> <span>({{category.notes_set.count}})</span></li>
+                        <hr>
+                    </ul>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
