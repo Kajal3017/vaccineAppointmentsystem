@@ -1,0 +1,331 @@
+.nav-section{
+    background-color: rgb(63, 95, 107);
+}
+.nav-section a{
+    color: white !important;
+}
+.nav-section a:hover{
+    color: #648880 !important;
+}
+.navbar-brand{
+    font-size: 40px;
+    font-weight: 100;
+}
+.navbar-nav{
+    margin-left: auto;
+}
+.navbar-nav a{
+    font-weight: 600 !important;
+}
+
+.header-section{
+    background-color: rgb(245, 245, 245);
+    text-align: center;
+    padding: 30px;
+}
+.header h1{
+    font-size: 48px;
+    font-weight: 100;
+}
+
+.profolio-footer {
+    padding-top: 50px !important;
+    margin-bottom: 50px !important;
+}
+.all-post-btn{
+    padding-bottom: 50px !important;
+}
+
+/* Home.html style start here */
+.home-heading{
+    padding: 3rem;
+    text-align: center;
+}
+.home-heading h1{
+    font-family: apple-system !important;
+    font-size: 3em !important;
+    color: #ce973e;
+    padding-bottom: 20px;
+}
+.home-heading p{
+    font-weight: 500 !important;
+    padding-bottom: 20px;
+}
+.home-heading button{
+    background-color: #6abfc3;
+    border-color: #6abfc3;
+    padding: 14px 24px;
+}
+.home-heading button:hover{
+    background-color: #7ed0d4;
+    border-color: #7ed0d4;
+}
+
+.home-img img{
+    width: 100%;
+}
+
+.home-body #body-contant{
+    text-align: center;
+    width: 50%;
+    margin: 5rem auto;
+}
+#body-contant h4{
+    margin-bottom: 3rem;
+    font-size: 30px;
+    color: #4a4a4a;
+}
+#good-text{
+    color: rgba(74,74,74,0.7);
+    font-size: 1.125rem;
+    letter-spacing: 0.2px;
+}
+
+.home-body-2{
+    margin-bottom: 4rem;
+}
+.home-body-2 .row>div{
+    text-align: center;
+}
+.f-1{
+    margin-top: 22px;
+}
+.f-2{
+    margin-top: 22px;
+}
+.row #margin-img{
+    margin-bottom: 4rem;
+}
+.row .margin-h5{
+    margin-bottom: 1rem;
+}
+
+.home-body-3{
+    padding: 6rem;
+    background-color: lightcyan;
+    text-align: center;
+}
+.home-body-3 .my-h1{
+    font-weight: normal !important;
+    color: rgba(74,74,74,0.7);
+    margin-bottom: 4rem;
+}
+.home-body-3 button{
+    background-color: #6abfc3;
+    border-color: #6abfc3;
+    padding: 12px 50px;
+}
+.home-body-3 button:hover{
+    background-color: #7ed0d4;
+    border-color: #7ed0d4;
+}
+
+.footer{
+    background-color: rgb(84, 109, 119);
+}
+.footer-styling{
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+.footer-styling .footer-brand{
+    font-size: 40px;
+    font-weight: 400;
+    color: rgb(199, 199, 199);
+}
+.footer-styling .footer-brand:hover{
+    color: rgb(52, 76, 85);
+    text-decoration: none;
+}
+.footer-styling a{
+    display: block;
+    color: rgb(199, 199, 199);
+    font-weight: 500;
+}
+
+
+
+
+/* main index contant style start here */
+.card{
+    border-radius: 12px;
+}
+.card:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.cart-style .icon-n-data{
+    color: #afacac;
+}
+.cart-style a:hover{
+    text-decoration: none;
+}
+.cart-style a h5{
+    color: rgb(34, 34, 34);
+}
+.cart-style a h5 span{
+    color: #6c757d;
+}
+.cart-style .note-nav{
+    float: right;
+}
+
+
+.notes{
+    border: 2px solid darkkhaki;
+    border-radius: 10px;
+    padding: 16px;
+}
+#notes-header{
+    margin-bottom: 10px;
+}
+#notes-header .date-time{
+    font-weight: 700;
+    color: #6c757d;
+}
+.note-title{
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+}
+.note-title .category-head{
+    display: inline;
+    color: #6c757d;
+}
+.note-title .category-link{
+    float: right;
+}
+#notes-header .category{
+    background-color: #6c757d;
+    font-weight: 500;
+    padding: .5px 6px;
+    color: white;
+    border: 2px solid #6c757d;
+    border-radius: 5px;
+}
+#notes-header .category:hover{
+    text-decoration: none;
+    background-color: #4d5257;
+    border-color: #4d5257;
+}
+.contant{
+    margin-left: 16px;
+}
+.count{
+    color: #6c757d;
+}
+.blockquote-footer{
+    display: inline;
+    font-weight: 700;
+    color: rgb(77, 77, 107);
+}
+
+
+/* asside style start here */
+.asside-items .asside-search{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 1rem;
+    background-color: rgb(245, 245, 245);
+}
+.asside-items .asside-search i{
+    margin-right: 9px;
+    font-weight: 650;
+}
+.asside-items .asside-search input{
+    width: 100%;
+    border: none;
+    background-color: rgb(245, 245, 245);
+}
+.asside-items .asside-search input:focus{
+    outline: none;
+}
+.asside-items .asside-search input:hover{
+    outline: none;
+}
+.asside-items .asside-header{
+    color: rgb(32, 32, 32);
+}
+.cate-link ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.cate-link a{
+    color: #6c757d;
+    font-weight: 500;
+}
+.cate-link span{
+    color: #6c757d;
+    float: right;
+}
+.user-logo{
+    margin-top: 50px;
+    margin-bottom: 10px;
+    border: 1px solid #d8d6d6;
+    border-radius: 10px;
+    text-align: center;
+}
+.user-logo .user-logo-body{
+    color: #6c757d;
+}
+.user-logo .user-logo-img img{
+    margin-top: -40px;
+}
+
+
+/* min detail contant style start herer */
+.header-section .title-search{
+    display: flex;
+    align-items: center;
+}
+.header-section .title-nav{
+    display: flex;
+}
+
+
+
+/* Signup form style */
+.signup-form h1{
+    margin-top: 4rem;
+}
+.form-style-card{
+    border: 2px solid white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 50px 0 rgba(0, 0, 0, 0.1);
+    padding: 4rem;
+}
+.form-style-card button{
+    font-weight: 600;
+    background-color: #6abfc3;
+    border-color: #6abfc3;
+    padding: 12px 50px;
+    width: 100%;
+}
+.form-style-card button:hover{
+    background-color: #7ed0d4;
+    border-color: #dfdbdb;
+}
+#form__style{
+    display: flex;
+    margin-bottom: 2rem;
+    background-color: rgba(0,0,0,0.02);
+    padding: 9px;
+}
+#form__style label{
+    margin-right: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 28px;
+}
+#form__style input{
+    border: none;
+    background-color: rgba(0,0,0,0.00);
+}
+#form__style input::placeholder{
+    color: teal;
+}
+#form__style input:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+

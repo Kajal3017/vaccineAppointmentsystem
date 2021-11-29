@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %} 
+{% block content %}
+
+<div class="container-fulid user-styling">
+    <div class="container">
+        <div class="row post-se">
+            <div class="col-lg-4">
+              <h1 class="heading-style-1">Book your appointment</h1>
+            </div>
+            <div class="col-lg-8">
+                <div class="form-style-card">
+                    <form action="." method="POST" class="form">
+                        {% csrf_token %}
+                        <div class="row mt-3">
+                            <div class="form-group col-md-6">
+                                {{ form.first_name|as_crispy_field }}                                
+                            </div>
+                            <div class="form-group col-md-6">
+                                {{ form.last_name|as_crispy_field }}                                
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="form-group col-md-6">
+                                {{ form.DOB|as_crispy_field }}                                
+                            </div>
+                            <div class="form-group col-md-6">
+                                {{ form.gender|as_crispy_field }}                                
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="form-group col-md-6">
+                                {{ form.address_line_one|as_crispy_field }}                                
+                            </div>
+                            <div class="form-group col-md-6">
+                                {{ form.address_line_two|as_crispy_field }}                                
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="form-group col-md-4">
+                                {{ form.postal_code|as_crispy_field }}                                
+                            </div>
+                            <div class="form-group col-md-4">
+                                {{ form.city|as_crispy_field }}                                
+                            </div>
+                            <div class="form-group col-md-4">
+                                {{ form.provinces|as_crispy_field }}                                
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="form-group col-md-6">
+                                {{ form.phone_code|as_crispy_field }}                                
+                            </div>
+                            <div class="form-group col-md-6">
+                                {{ form.phone_number|as_crispy_field }}                                
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="form-group col-md-12">
+                                {{ form.health_card|as_crispy_field }}                                
+                            </div>
+                            <div class="form-group col-md-12">
+                                {{ form.which_dose|as_crispy_field }}                                
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="form-group col-md-12">
+                                {{ form.vaccine_name|as_crispy_field }}                                
+                            </div>
+                            <div class="form-group col-md-12">
+                                {{ form.choose_date|as_crispy_field }}                                
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-success mt-3">Save Vaccine</button>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

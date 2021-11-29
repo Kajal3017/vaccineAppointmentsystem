@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %} 
+{% block content %}
+
+<div class="container-fulid user-styling">
+    <div class="container">
+        <div class="row post-se">
+            <div class="col-lg-4">
+              <h1 class="heading-style-1">Confirm Delete </h1>
+              <p>
+                <span style="font-weight: 600;">Note: </span>
+                <span style="color: rgb(114, 114, 114);"><a href="#">Click here</a> to check already added clinic</span>
+            </p>
+                <p>
+                    <span style="font-weight: 600;">Note: </span>
+                    <span style="color: rgb(114, 114, 114);">If the clinic is already exist you can update the infomation or can add quantity on <a href="#">the list</a></span>
+                </p>
+            </div>
+            <div class="col-lg-8">
+                <strong>Are you sure you want to delete </strong>
+                <a href="{% url 'delete_it_clinic' clinic.id %}">{{ clinic }}</a><br>
+                <a class="secondaryAction btn btn-danger" href="{% url 'delete_it_clinic' clinic.id %}">Delete</a>
+                 
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

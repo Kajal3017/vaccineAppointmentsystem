@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>My Posts</title>
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="container-fulid post-container">
+        <div class="container">
+            <div class="row post-se">
+                <div class="col-lg-4">
+                    <h1>Recent Posts</h1>
+                </div>
+                <div class="col-lg-8">
+                    {% for post in posts%}
+                        <div class="post">
+                            <span class="p-title">
+                                <h4><a href="#">{{ post.headline }}</a></h4>
+                            </span>
+                            <p class="p-headline">{{ post.tagline }}</p>
+                            <p class="p-since">{{ post.pub_date }}</p>
+                        </div>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body%}

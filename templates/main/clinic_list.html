@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %} 
+{% block content %}
+
+<div class="container-fulid user-styling">
+    <div class="container">
+        <div class="row post-se">
+            <div class="col-lg-4">
+              <h1 class="heading-style-1">Clinic List </h1>
+              <p>
+                <span style="font-weight: 600;">Note: </span>
+                <span style="color: rgb(114, 114, 114);"><a href="#">Click here</a> to check already added clinic</span>
+            </p>
+                <p>
+                    <span style="font-weight: 600;">Note: </span>
+                    <span style="color: rgb(114, 114, 114);">If the clinic is already exist you can update the infomation or can add quantity on <a href="#">the list</a></span>
+                </p>
+            </div>
+            <div class="col-lg-8">
+                {% if clinic_list %}
+                {% for clinic in clinic_list %}
+                <div class="my-c-card">
+                    <div class="clinic-name">
+                        <h4>{{ clinic.clinic_name }}</h4>
+                    </div>
+                    <div class="clinic-vaccine">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Vaccine:</h5>
+                                <div class="state-info">
+                                    <ul>
+                                        {% if clinic.vaccine_set.all %}
+                                        {% for vaccine in clinic.vaccine_set.all %}
+                                        <li>
+                                            <span class="vaccine-name">{{ vaccine.get_vaccine_name_display }}</span> &bull;
+                                            <span>avaliable</span> &bull;
+                                            <span>quantity</span>
+                                        </li>
+                                        {% endfor %}
+                                        {% else %}
+                                            <strong>There is no vaccine avalible.</strong>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="c-address-info">
+                                    <h5><span>Address:</span></h5>
+                                    <div class="state-info">
+                                        <p>
+                                            <span>{{ clinic.address_line_one }}</span><br>
+                                            {% if clinic.address_line_two %}
+                                            <span>{{ clinic.address_line_two }}</span><br>
+                                            {% endif %}
+                                            <span>{{ clinic.city }}, {{ clinic.provinces }}, {{ clinic.postal_code }}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="clinic-contact">
+                                    <h5><span>Contact info: </span></h5>
+                                    <div class="state-info">
+                                        <p>
+                                            <span>{{ clinic.get_phone_code_display }} {{ clinic.phone_number }}</span><br>
+                                            <span>website: {{ clinic.website }}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="clinic-time">
+                                    <h5><span>Clinic timing:</span></h5>
+                                    <div class="state-info">
+                                        <p>
+                                            <span>Monday to Friday</span> <br>
+                                            <span>Opening timing: {{ clinic.opening_time }}</span> &bull;
+                                            <span>Closing time: {{ clinic.closing_time }}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% if user.is_superuser %}
+                        <a href="{% url 'edit_clinic' clinic.id %}" class="btn btn-info" style="color: white; font-weight: bold;">Edit Clinic</a>
+                        <a href="{% url 'delete_clinic' clinic.id %}" class="btn btn-danger" style="color: white; font-weight: bold;">Delete Clinic</a>
+                        {% endif %}
+                        
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                    <strong>There is no clinic added yet</strong>
+                    <p><a href="{% url 'add_clinic_info' %}">Click here</a> to add clinic info.</p>
+                {% endif %}
+
+                <div class="my-c-card">
+                    <div class="clinic-name">
+                        <h4>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, necessitatibus?</h4>
+                    </div>
+                    <div class="clinic-vaccine">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Vaccine:</h5>
+                                <div class="state-info">
+                                    <ul>
+                                        <li>
+                                            <span class="vaccine-name">vaccine name</span> &bull;
+                                            <span>avaliable</span> &bull;
+                                            <span>quantity</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="c-address-info">
+                                    <h5><span>Address:</span></h5>
+                                    <div class="state-info">
+                                        <p>
+                                            <span>184 hollybrook trail</span><br>
+                                            <span>Kitchener, orntario, N2R0M2</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="clinic-contact">
+                                    <h5><span>Contact info: </span></h5>
+                                    <div class="state-info">
+                                        <p>
+                                            <span>+1 5195001610</span><br>
+                                            <span>website: jhinjer.herokuapp.com</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="clinic-time">
+                                    <h5><span>Clinic timing:</span></h5>
+                                    <div class="state-info">
+                                        <p>
+                                            <span>Monday to priday</span> <br>
+                                            <span>Opening timing: 9:00 AM</span> &bull;
+                                            <span>Closing time: 10:00 PM</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
