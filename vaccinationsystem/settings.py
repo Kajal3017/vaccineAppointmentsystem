@@ -26,6 +26,7 @@ SECRET_KEY = 'q!_h-d(swefezuu12#$h1c)$eb$dk+ce#iq&gwh*cfcew#l34&'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['vaccineappointment.herokuapp.com']
 
 
 # Application definition
@@ -44,7 +45,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'crispy_forms',
     'ckeditor',
-    'tempus_dominus',
+    'phonenumber_field',
 
     'blog',
     'main',
@@ -54,6 +55,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -93,6 +95,11 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
+import dj_database_url
+prod_db = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
 
 
 # Password validation
@@ -138,6 +145,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'staticfiles'),
 ]
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 from django.urls import reverse_lazy
 LOGIN_REDIRECT_URL = reverse_lazy('blog_index')
 LOGOUT_REDIRECT_URL = reverse_lazy('account_login')
@@ -147,3 +157,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'testsingh212@gmail.com'
 EMAIL_HOST_PASSWORD = 'kuldeepsingh'
 EMAIL_PORT = 587
+
+#  Add configuration for static files storage using whitenoise
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

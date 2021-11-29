@@ -37,7 +37,7 @@ def edit_blog(request, blog_slug, blog_id):
     form = BlogForm(instance=blog)
     if request.method == 'POST':
         form = BlogForm(request.POST, instance=blog)
-        if form.is_valid:
+        if form.is_valid():
             c_form = form.save(commit=False)
             c_form.user = request.user
             c_form.save()

@@ -72,3 +72,21 @@
     font-size: 48px;
     font-weight: 100;
 }
+
+
+/* CLINIC LIST STYLE START HERE */
+.my-c-card {
+    border: 2px solid rgb(61, 61, 61) !important;
+    border-radius: 10px !important;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.clinic-name {
+    color: #116364 !important;
+}
+.state-info {
+    color: rgb(70, 70, 70);
+}
+.state-info .vaccine-name{
+    font-weight: bold;
+}
